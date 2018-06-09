@@ -41,7 +41,11 @@ Invoque a função criada acima, fazendo-a retornar todos os valores do último
 array criado.
 */
 
+console.log(retornarIndice(meuArray, 0));
+console.log(retornarIndice(meuArray, 1));
+console.log(retornarIndice(meuArray, 2));
 console.log(retornarIndice(meuArray, 3));
+console.log(retornarIndice(meuArray, 4));
 
 /*
 Crie uma função chamada `book`, que recebe um parâmetro, que será o nome do
@@ -77,7 +81,7 @@ function book(title) {
         }
     };
 
-    return title === undefined ? books : books[title];
+    return title ? books[title] : books;
 }
 
 /*
