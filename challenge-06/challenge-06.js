@@ -17,7 +17,7 @@ desafio.
 
 var teams = ['Flamengo', 'Sport', 'Palmeiras', 'Atlético-MG', 'Cruzeiro'];
 
-console.log( 'Times que estão participando do campeonato:', teams );
+console.log('Times que estão participando do campeonato:', teams);
 
 /*
 Crie uma função chamada `showTeamPosition` com as seguintes características:
@@ -37,7 +37,7 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
 */
 
 function showTeamPosition(posicao) {
-    return posicao > teams.length ? 'Não temos a informação do time que está nessa posição.' : 'O time que está em ' + posicao + 'º lugar é o ' + teams[posicao - 1] + '.';
+    return posicao < 1 || posicao > 5 ? 'Não temos a informação do time que está nessa posição.' : 'O time que está em ' + posicao + 'º lugar é o ' + teams[posicao - 1] + '.';
 }
 
 /*
@@ -45,10 +45,9 @@ Escolha 4 times do campeonato selecionado e mostre a posição dele, usando a
 função acima. Entre esses 4, adicione 1 que não esteja entre os 5 primeiros.
 */
 
-console.log(showTeamPosition(15)); // Santos
-console.log(showTeamPosition(9));  // Corinthians
-console.log(showTeamPosition(1));  // Flamengo
-console.log(showTeamPosition(6));  // São Paulo
+console.log(showTeamPosition(3));  // Palmeiras
+console.log(showTeamPosition(4));  // Atlético-MG
+console.log(showTeamPosition(2));  // Sport
 console.log(showTeamPosition(16)); // Chapecoense
 
 /*
@@ -77,19 +76,19 @@ Crie uma função chamada `convertToHex`, com as seguintes características:
 
 function convertToHex(cor) {
     var mensagem = 'O hexadecimal para a cor "' + cor + '" é ';
-    
-    switch(cor) {
-        case 'red': mensagem += '#FF0000.'
-        break;
-        case 'green': mensagem += '#008000.'
-        break;
-        case 'blue': mensagem += '#0000FF.'
-        break;
-        case 'yellow': mensagem += '#FFFF00.'
-        break;
-        case 'orange': mensagem += '#FFA500.'
-        break;
-        default: mensagem = 'Não temos o equivalente hexadecimal para "' + cor + '".'
+
+    switch (cor) {
+        case 'red': mensagem += '#FF0000.';
+            break;
+        case 'green': mensagem += '#008000.';
+            break;
+        case 'blue': mensagem += '#0000FF.';
+            break;
+        case 'yellow': mensagem += '#FFFF00.';
+            break;
+        case 'orange': mensagem += '#FFA500.';
+            break;
+        default: mensagem = 'Não temos o equivalente hexadecimal para "' + cor + '".';
     }
 
     return mensagem;
