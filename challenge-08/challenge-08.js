@@ -6,7 +6,7 @@ desses parâmetros.
 
 var sum = function calculateSum(x, y) {
   return x + y;
-}
+};
 
 /*
 Invoque a função criada acima, passando dois números que serão somados, e mostre
@@ -14,7 +14,10 @@ o resultado no console, com a frase:
 "A soma de [VALOR 1] e [VALOR2] é igual a [RESULTADO]."
 */
 
-console.log('A soma de 4 e 2 é igual a ' + sum(4, 2) + '.');
+var valor1 = 4;
+var valor2 = 2;
+
+console.log('A soma de ' + valor1 + ' e ' + valor2 + ' é igual a ' + sum(valor1, valor2) + '.');
 
 /*
 Mostre no console o nome da função criada acima, com a frase:
@@ -60,25 +63,31 @@ vai efetuar. Será uma string com os valores `+`, `-`, `*`, `/` ou `%`;
 */
 
 function calculator(operator) {
-  return function(a, b) {
-    var mensagemRetorno = 'Resultado da operação: ' + a + ' ' + operator + ' ' + b + ' = ';
+  return function (a, b) {
+    var resultado;
 
-    switch(operator) {
-      case '+': mensagemRetorno += (a + b) + '.';
-      break;
-      case '-': mensagemRetorno += (a - b) + '.';
-      break;
-      case '*': mensagemRetorno += (a * b) + '.';
-      break;
-      case '/': mensagemRetorno += (a / b) + '.';
-      break;
-      case '%': mensagemRetorno += (a % b) + '.';
-      break;
-      default: return 'Operação inválida.';
+    switch (operator) {
+      case '+':
+        resultado = a + b;
+        break;
+      case '-':
+        resultado = a - b;
+        break;
+      case '*':
+        resultado = a * b;
+        break;
+      case '/':
+        resultado = a / b;
+        break;
+      case '%':
+        resultado = a % b;
+        break;
+      default:
+        return 'Operação inválida.';
     }
 
-    return mensagemRetorno;
-  }
+    return 'Resultado da operação: ' + a + ' ' + operator + ' ' + b + ' = ' + resultado + '.';
+  };
 }
 
 /*
@@ -104,6 +113,7 @@ var subtraction = calculator('-');
 var multiplication = calculator('*');
 var division = calculator('/');
 var mod = calculator('%');
+var invalida = calculator('#');
 
 /*
 Faça uma operação com cada uma das funções criadas acima, mostrando o resultado
@@ -114,3 +124,4 @@ console.log(subtraction(3, 2));
 console.log(multiplication(3, 7));
 console.log(division(24, 8));
 console.log(mod(6, 4));
+console.log(invalida(3, 3));
