@@ -45,7 +45,7 @@
     function myFunction3() {
         function sum() {
             return number1 + number2;
-        };
+        }
 
         var number1 = 40;
         var number2 = 50;
@@ -95,9 +95,10 @@
     anônima tem como seus argumentos.
     */
 
-    console.log('O resultado da soma é: ' + sum(function(x, y) {
+    console.log('O resultado da soma é: ');
+    console.log(sum(function(x, y) {
         return x + y;
-    }));
+    }));    
 
     /*
     Agora declare outra variáveis chamadas `subtraction`, `multiplication`,
