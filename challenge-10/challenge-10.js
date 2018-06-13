@@ -56,7 +56,7 @@
     */
 
     function isOperatorValid(operator) {
-        return operator === '+' || operator === '-' || operator === '*' || operator === '/' || operator === '%' ? true : false;
+        return !!operation[operator];
     }
 
     /*
