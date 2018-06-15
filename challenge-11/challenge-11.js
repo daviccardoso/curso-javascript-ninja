@@ -26,7 +26,7 @@
         age: 26,
         weight: 77,
         birthday: '08/07/1991'
-    }
+    };
 
     /*
     Use um loop para percorrer o objeto criado acima, mostrando no console
@@ -56,10 +56,12 @@
     */
 
     function moreThan(age) {
-        return person.age > age ? true : false;
+        return person.age > age;
     }
 
-    console.log('The person has more than 25 years old?', moreThan(25));
+    var age = 25;
+
+    console.log('The person has more than ' + age + ' years old?', moreThan(age));
 
     /*
     Faça um loop de 0 a 20, que adicione cada número como um item de um
@@ -69,7 +71,11 @@
     console.log('De 0 a 10:');
 
     var numbers = [];
-    for (var i = 0; i <= 10; i++) {
+    for (var i = 0; i <= 20; i++) {
+        if (i > 10) {
+            break;
+        }
+
         numbers.push(i);
     }
 
