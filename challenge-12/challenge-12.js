@@ -1,4 +1,4 @@
-(function() {
+(function () {
     /*
     Envolva todo o conteúdo desse arquivo em uma IIFE.
     */
@@ -55,55 +55,44 @@
         pages: 608
     });
 
-    console.log('\nLista de livros:');
-
     /*
     Mostre no console todos os livros.
     */
 
+    console.log('\nLista de livros:');
     console.log(books);
 
-    console.log('\nLivro que está sendo removido:');
     /*
     Remova o último livro, e mostre-o no console.
     */
 
+    console.log('\nLivro que está sendo removido:');
     console.log(books.pop());
 
-    console.log('\nAgora sobraram somente os livros:');
     /*
     Mostre no console os livros restantes.
     */
 
+    console.log('\nAgora sobraram somente os livros:');
     console.log(books);
 
     /*
     Converta os objetos que ficaram em `books` para strings.
     */
-    // ?
-    console.log('\nLivros em formato string:');
-
-    for (var book in books) {
-        books[book] = JSON.stringify(books[book]);
-    }
+    books = JSON.stringify(books);
 
     /*
     Mostre os livros nesse formato no console:
     */
 
-    for (var book in books) {
-        console.log(books[book]);
-    }
+    console.log('\nLivros em formato string:');
+    console.log(books);
 
     /*
     Converta os livros novamente para objeto.
     */
 
-    for (var book in books) {
-        books[book] = JSON.parse(books[book]);
-    }
-
-    console.log('\nAgora os livros são objetos novamente:');
+    books = JSON.parse(books);
 
     /*
     Mostre no console todas as propriedades e valores de todos os livros,
@@ -111,13 +100,11 @@
         "[PROPRIEDADE]: [VALOR]"
     */
 
-    for (var book in books) {
-        var keys = Object.keys(books[book]);
+    console.log('\nAgora os livros são objetos novamente:');
 
-        for (var key in keys) {
-            var property = keys[key];
-
-            console.log(property + ': ' + books[book][property]);
+    for (title in books) {
+        for (var property in books[title]) {
+            console.log(property + ': ' + books[title][property]);
         }
     }
 
@@ -126,27 +113,26 @@
     seu nome. Adicione seu nome completo no array.
     */
 
-    var myName = ['D', 'a', 'v', 'i', ' ', 'C', 'a', 'r', 'd', 'o', 's', 'o'];
-    console.log('\nMeu nome é:');
+    var myName = ['D', 'a', 'v', 'i'];
 
     /*
     Juntando todos os itens do array, mostre no console seu nome.
     */
 
+    console.log('\nMeu nome é:');
     console.log(myName.join(''));
-
-    console.log('\nMeu nome invertido é:');
 
     /*
     Ainda usando o objeto acima, mostre no console seu nome invertido.
     */
 
+    console.log('\nMeu nome invertido é:');
     console.log(myName.reverse().join(''));
 
-    console.log('\nAgora em ordem alfabética:');
     /*
     Mostre todos os itens do array acima, odenados alfabéticamente.
     */
 
+    console.log('\nAgora em ordem alfabética:');
     console.log(myName.sort());
 })();
