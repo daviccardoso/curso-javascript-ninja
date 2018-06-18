@@ -48,6 +48,7 @@
     Crie um novo array chamado `newSul`, que receba somente os estados do sul,
     pegando do array `brasil`. Não remova esses itens de `brasil`.
     */
+   
     var newSul = brasil.slice(6);
 
     /*
@@ -73,6 +74,7 @@
     /*
     Mostre no console os estados do nordeste.
     */
+
     console.log('\nEstados do Nordeste:');
     console.log(nordeste);
 
@@ -155,11 +157,11 @@
 
     console.log('\nCeará está incluído em `brasil`?');
     
-    var temCeara = brasil.filter(function(value) {
+    var temCeara = brasil.some(function(value) {
         return value === 'Ceará';
     });
 
-    console.log(temCeara.length ? '"Ceará está incluído!' : 'Ceará não foi incluído :(');
+    console.log(temCeara ? '"Ceará está incluído!' : 'Ceará não foi incluído :(');
 
     /*
     Percorra o array `newBrasil` e crie um novo array que some 1 no ID de cada
