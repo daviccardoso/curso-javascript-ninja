@@ -28,7 +28,7 @@
 
     console.log('\nJust Numbers:');
 
-    var justNumbers = numberObjects.map(function (value) {
+    var justNumbers = numberObjects.map(function(value) {
         return value.number;
     });
 
@@ -42,7 +42,7 @@
 
     console.log('\nJust module of division by 2 or 3:');
 
-    var justMod2Or3 = justNumbers.filter(function (value) {
+    var justMod2Or3 = justNumbers.filter(function(value) {
         return value % 2 === 0 || value % 3 === 0;
     });
 
@@ -59,7 +59,7 @@
 
     console.log('\nOperation:');
 
-    var operation = justMod2Or3.reduce(function (previous, current) {
+    var operation = justMod2Or3.reduce(function(previous, current) {
         return (previous + 1) * current;
     }, 0);
 
@@ -73,7 +73,7 @@
 
     console.log('\nOperation 2:');
 
-    var operation2 = justMod2Or3.reduceRight(function (previous, current) {
+    var operation2 = justMod2Or3.reduceRight(function(previous, current) {
         return (previous + 1) * current;
     });
 
@@ -92,7 +92,7 @@
 
     var name = ['Da', 'vi', 'Car', 'do', 'so'];
 
-    name = name.reduce(function (previous, current) {
+    name = name.reduce(function(previous, current) {
         return previous + 'P' + current;
     }, '');
 
@@ -105,7 +105,7 @@
 
     console.log('\nInversed Name:');
 
-    var inversedName = ['D', 'a', 'v', 'i'].reduceRight(function (previous, current) {
+    var inversedName = ['D', 'a', 'v', 'i'].reduceRight(function(previous, current) {
         return previous + current;
     });
 
