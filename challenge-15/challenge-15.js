@@ -85,7 +85,7 @@
   */
 
   console.log('\nNova idade das pessoas:');
-  console.log(davi.getFullName() + ' agora tem ' + davi.getAge(3).getAge() + ' anos.');
-  console.log(larissa.getFullName() + ' agora tem ' + larissa.getAge(1).getAge() + ' anos.');
-  console.log(john.getFullName() + ' agora tem ' + john.getAge(2).getAge() + ' anos.');
+  console.log(davi.getFullName() + ' agora tem ' + davi.addAge(3).getAge() + ' anos.');
+  console.log(larissa.getFullName() + ' agora tem ' + larissa.addAge(1).getAge() + ' anos.');
+  console.log(john.getFullName() + ' agora tem ' + john.addAge(2).getAge() + ' anos.');
 })();
