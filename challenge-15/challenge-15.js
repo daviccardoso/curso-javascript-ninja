@@ -23,7 +23,7 @@
     que será instanciado.
   */
 
-  var Person = function Person(name, lastName, age) {
+  function Person(name, lastName, age) {
     this.name = name;
     this.lastName = lastName;
     this.age = age;
@@ -84,12 +84,8 @@
   - "[NOME COMPLETO] agora tem [NOVA IDADE] anos."
   */
 
-  davi.addAge(3);
-  larissa.addAge(1);
-  john.addAge(2);
-
   console.log('\nNova idade das pessoas:');
-  console.log(davi.getFullName() + ' agora tem ' + davi.getAge() + ' anos.');
-  console.log(larissa.getFullName() + ' agora tem ' + larissa.getAge() + ' anos.');
-  console.log(john.getFullName() + ' agora tem ' + john.getAge() + ' anos.');
+  console.log(davi.getFullName() + ' agora tem ' + davi.getAge(3).getAge() + ' anos.');
+  console.log(larissa.getFullName() + ' agora tem ' + larissa.getAge(1).getAge() + ' anos.');
+  console.log(john.getFullName() + ' agora tem ' + john.getAge(2).getAge() + ' anos.');
 })();
