@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
     /*
     1. Envolva todo o conteúdo desse desafio em uma IIFE.
@@ -20,7 +20,7 @@
 
     var name = 'Davi';
 
-    for (var i = 0; i < name.length; i++) {
+    for (var i = 0, tamanho = name.length; i < tamanho; i++) {
         console.log(name.charAt(i) + ' é a ' + (i + 1) + 'ª letra do meu nome.');
     }
 
@@ -60,6 +60,8 @@
 
     console.log('\nMeus amigos:');
 
+    // Também poderia ser feito com o Reduce().
+    
     var nomes = ['João', 'Maria', 'José', 'Antônio', 'Cláudio', 'Ricardo'];
     var ultimoIndice = nomes.length - 1;
     var listaAmigos = nomes.slice(0, ultimoIndice).join(', ').concat(' e ', nomes[ultimoIndice]);
@@ -72,6 +74,10 @@
     */
 
     console.log('\nEra "Roberto", agora é:');
+
+    /* IDEAL:
+     * 'Roberto.replace('to', 'ta');
+     */
 
     var roberto = 'Roberto';
     console.log(
