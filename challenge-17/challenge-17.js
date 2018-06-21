@@ -83,20 +83,22 @@
     */
 
     function getMonthNumber(month) {
-        switch (month) {
-            case 'janeiro': return '01';
-            case 'fevereiro': return '02';
-            case 'março': return '03';
-            case 'abril': return '04';
-            case 'maio': return '05';
-            case 'junho': return '06';
-            case 'julho': return '07';
-            case 'agosto': return '08';
-            case 'setembro': return '09';
-            case 'outubro': return '10';
-            case 'novembro': return '11';
-            case 'dezembro': return '12';
+        var months = {
+            janeiro: '01',
+            fevereiro: '02',
+            março: '03',
+            abril: '04',
+            maio: '05',
+            junho: '06',
+            julho: '07',
+            agosto: '08',
+            setembro: '09',
+            outubro: '10',
+            novembro: '11',
+            dezembro: '12'
         }
+
+        return months[month];
     }
 
     console.log('\nMeses representados por números:');
@@ -127,12 +129,10 @@
     console o resultado.
     */
 
-    function replaceDate() {
-        return text.replace(regexDate, function(textoCasado, dia, mes, ano) {
-            return dia + '/' + getMonthNumber(mes) + '/' + ano;
-        });
+    function replaceDate(matchedText, day, month, year) {
+        return day + '/' + getMonthNumber(month) + '/' + year;
     }
 
     console.log('\nReplace de datas:');
-    console.log(replaceDate());
+    console.log(text.replace(regexDate, replaceDate));
 })();
