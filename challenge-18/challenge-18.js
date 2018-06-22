@@ -21,6 +21,8 @@
         return cpf.replace(/\D/g, '');
     }
 
+    // Também poderia ser resolvido por meio da atribuição dos CPFs a um array, seguida do percorrimento do array com um forEach().
+
     console.log('Limpando CPFs:');
     console.log(cleanCPF('049-214 3421-1'));
     console.log(cleanCPF('210.458.522-05'));
@@ -51,7 +53,7 @@
     ["junho", "julho"]
     */
 
-    var regexMeses = /(jun|jul)ho/g;
+    var regexMeses = /ju[nl]ho/g;
 
     console.log('\nMatch com as palavras "junho" ou "julho" para a frase "Os meses de janeiro, junho e julho começam com a letra j.":');
     console.log('Os meses de janeiro, junho e julho começam com a letra j.'.match(regexMeses));
@@ -84,7 +86,7 @@
     ["<li></li>", "<li></li>", "<span></span>"]
     */
 
-    var regexTagsVazias = /<(\w+)><\/\w+>/g;
+    var regexTagsVazias = /<\w+><\/\w+>/g;
 
     console.log('\nMatch com tags HTML vazias (abertura e fechamento da tag):');
     console.log(
@@ -119,8 +121,8 @@
     console.log(
         '<h1>Título da página</h1><p>Este é um parágrafo</p><footer>Rodapé</footer>'
         .replace(
-            /(<(\w+)>)([^<]+)(<\/\w+>)/g
-            , '$1O texto dentro da tag "$2" é "$3"$4\n'
+            /(<(\w+)>)([^<]+)(<\/\w+>)/g, // ou /<(\w+)>([^<]+)<\/\w+>/g com apenas dois grupos de captura.
+            '$1O texto dentro da tag "$2" é "$3"$4\n'
         )
     );
 })();
