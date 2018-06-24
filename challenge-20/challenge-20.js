@@ -92,25 +92,17 @@
     $button.addEventListener('click', function(event) {
         event.preventDefault();
 
-        if (!$inputUsername.value) {
-            alert('Preencha o nome do usuário!');
-            return;
-        }
+        if (!$inputUsername.value)
+            return alert('Preencha o nome do usuário!');
 
-        if (!$inputEmail.value) {
-            alert('Preencha o e-mail!');
-            return;
-        }
+        if (!$inputEmail.value)
+            return alert('Preencha o e-mail!');
 
-        if (!isValidEmail($inputEmail.value)) {
-            alert('Preenche um e-mail válido!');
-            return;
-        }
+        if (!isValidEmail($inputEmail.value))
+            return alert('Preenche um e-mail válido!');
 
-        if (!$message.value) {
-            alert('Preencha a mensagem!');
-            return;
-        }
+        if (!$message.value)
+            return alert('Preencha a mensagem!');
 
         alert(
             confirm('Tem certeza que deseja enviar o formulário?') ?
@@ -147,7 +139,6 @@
     */
 
     function isValidEmail(email) {
-        var regex = new RegExp('^[\\w+\\.]+@\\w+\\.[a-z0-9]{2,}(?:\\.[a-z0-9]{1,2})?$', 'gi');
-        return regex.test(email);
+        return /^[\w+.]+@\w+\.[a-z0-9]{2,}(?:\.[a-z0-9]{1,2})?$/.test(email);
     }
 })(window, document);
