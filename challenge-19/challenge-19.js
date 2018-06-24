@@ -93,7 +93,7 @@
     */
 
     function hasClass(markup, cssClass) {
-        var regex = new RegExp('class=["\']' + cssClass + '["\']');
+        var regex = new RegExp('class=["\'](?:[\\w|\\s]+)?' + cssClass + '(?:[\\w|\\s]+)?["\']');
         return regex.test(markup);
     }
 
