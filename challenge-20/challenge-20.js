@@ -33,14 +33,14 @@
     `$inputUsername`.
     */
 
-    var $inputUsername = document.querySelector('[type="text"');
+    var $inputUsername = document.querySelector('[type="text"]');
 
     /*
     - Selecione o input de "Email", atribuindo-o à uma variável chamada
     `$inputEmail`.
     */
 
-    var $inputEmail = document.querySelector('[type="email"');
+    var $inputEmail = document.querySelector('[type="email"]');
 
     /*
     - Selecione o campo de "Mensagem", atribuindo-o à uma variável chamada
