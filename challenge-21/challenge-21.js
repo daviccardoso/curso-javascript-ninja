@@ -16,9 +16,7 @@
     usar o nome que achar melhor, desde que ele seja semântico, ou seja, o nome
     dado ao elemento HTML deve definir o que o elemento é ou o que ele faz.
     */
-    // ?
 
-    var seconds = 0;
     var timer;
 
     var $display = document.querySelector('[data-js="display"]');
@@ -26,27 +24,21 @@
     var $stopButton = document.querySelector('[data-js="stop"]');
     var $resetButton = document.querySelector('[data-js="reset"]');
 
-    $display.value = seconds;
-
     function start() {
-        $display.value = seconds++;
+        $display.value = +$display.value + 1;
         timer = setTimeout(start, 1000);
     }
 
-    $startButton.addEventListener('click', function(event) {
-        event.preventDefault();
-        start();
-    }, false);
-
-    $stopButton.addEventListener('click', function(event){
-        event.preventDefault();
+    function stop() {
         clearTimeout(timer);
-    }, false);
+    }
 
-    $resetButton.addEventListener('click', function(event) {
-        event.preventDefault();
-        clearTimeout(timer);
+    function reset() {
         $display.value = '0';
-        seconds = 0;
-    }, false);
+        stop();
+    }
+
+    $startButton.addEventListener('click', start, false);
+    $stopButton.addEventListener('click', stop, false);
+    $resetButton.addEventListener('click', reset, false);
 })(window, document);
