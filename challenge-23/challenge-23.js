@@ -26,7 +26,7 @@
     - Ao pressionar o botão "CE", o input deve ficar zerado.
     */
 
-    var operadores = {
+    var operadoresCalculadora = {
         '+': function(x, y) {
             return x + y;
         },
@@ -63,6 +63,9 @@
 
     botoesCalculadora.forEach(function(item) {
         item.addEventListener('click', function() {
+            if (/\D/.test(item.innerHTML) && $display.value[$display.value.length - 1] in operadoresCalculadora)
+                $display.value = $display.value.substring(0, $display.value.length - 1);
+
             $display.value += item.innerHTML;
         }, false);
     });
@@ -81,6 +84,12 @@
         var operadores = $display.value.split(/[\d=]/).filter(function(operador) {
             return operador !== '';
         });
+
+        var resultado = operandos.reduce(function(anterior, atual, index) {
+            return operadoresCalculadora[operadores[index-1]](anterior, atual);
+        });
+
+        $display.value = resultado;
     }
 
     $btn_limpar.addEventListener('click', limparDisplay, false);
