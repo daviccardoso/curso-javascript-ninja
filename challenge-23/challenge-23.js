@@ -41,7 +41,6 @@
         }
     };
 
-    var $display = document.querySelector('[data-js="display"');
     var $btn_0 = document.querySelector('[data-js="btn-0"');
     var $btn_1 = document.querySelector('[data-js="btn_1"');
     var $btn_2 = document.querySelector('[data-js="btn_2"');
@@ -52,6 +51,7 @@
     var $btn_7 = document.querySelector('[data-js="btn_7"');
     var $btn_8 = document.querySelector('[data-js="btn_8"');
     var $btn_9 = document.querySelector('[data-js="btn_9"');
+    var $display = document.querySelector('[data-js="display"');
     var $btn_soma = document.querySelector('[data-js="btn-soma"');
     var $btn_subtracao = document.querySelector('[data-js="btn-subtracao"');
     var $btn_multiplicacao = document.querySelector('[data-js="btn-multiplicacao"');
@@ -59,10 +59,13 @@
     var $btn_igual = document.querySelector('[data-js="btn-igual"');
     var $btn_limpar = document.querySelector('[data-js="btn-limpar"');
 
-    var botoesCalculadora = document.querySelectorAll('button');
+    var botoesCalculadora = document.querySelectorAll('.botoes-numericos button, .botoes-operadores button');
 
     botoesCalculadora.forEach(function(item) {
         item.addEventListener('click', function() {
+            if ($display.value === '0')
+                $display.value = '';
+
             if (/\D/.test(item.innerHTML) && $display.value[$display.value.length - 1] in operadoresCalculadora)
                 $display.value = $display.value.substring(0, $display.value.length - 1);
 
@@ -81,7 +84,7 @@
             return nro > 0;
         });
 
-        var operadores = $display.value.split(/[\d=]/).filter(function(operador) {
+        var operadores = $display.value.split(/[\d]/).filter(function(operador) {
             return operador !== '';
         });
 
