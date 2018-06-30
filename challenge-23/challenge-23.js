@@ -26,7 +26,12 @@
     - Ao pressionar o botão "CE", o input deve ficar zerado.
     */
 
-    var operadoresCalculadora = {
+    var $display = document.querySelector('[data-js="display"]');
+    var $btn_igual = document.querySelector('[data-js="btn-igual"]');
+    var $btn_limpar = document.querySelector('[data-js="btn-limpar"]');
+    var $botoesNumericos = document.querySelectorAll('[data-js="btn-numericos"]');
+    var $botoesOperacao = document.querySelectorAll('[data-js="btn-operacao"]');
+    var operacoes = {
         '+': function(x, y) {
             return x + y;
         },
@@ -41,60 +46,54 @@
         }
     };
 
-    var $btn_0 = document.querySelector('[data-js="btn-0"');
-    var $btn_1 = document.querySelector('[data-js="btn_1"');
-    var $btn_2 = document.querySelector('[data-js="btn_2"');
-    var $btn_3 = document.querySelector('[data-js="btn_3"');
-    var $btn_4 = document.querySelector('[data-js="btn_4"');
-    var $btn_5 = document.querySelector('[data-js="btn_5"');
-    var $btn_6 = document.querySelector('[data-js="btn_6"');
-    var $btn_7 = document.querySelector('[data-js="btn_7"');
-    var $btn_8 = document.querySelector('[data-js="btn_8"');
-    var $btn_9 = document.querySelector('[data-js="btn_9"');
-    var $display = document.querySelector('[data-js="display"');
-    var $btn_soma = document.querySelector('[data-js="btn-soma"');
-    var $btn_subtracao = document.querySelector('[data-js="btn-subtracao"');
-    var $btn_multiplicacao = document.querySelector('[data-js="btn-multiplicacao"');
-    var $btn_divisao = document.querySelector('[data-js="btn-divisao"');
-    var $btn_igual = document.querySelector('[data-js="btn-igual"');
-    var $btn_limpar = document.querySelector('[data-js="btn-limpar"');
+    function inserirCaractereNoDisplay() {
+        limparDisplayQuandoEstiverZerado();
+        $display.value += this.value;
+    }
 
-    var botoesCalculadora = document.querySelectorAll('.botoes-numericos button, .botoes-operadores button');
+    function inserirOperadorNoDisplay() {
+        $display.value = removerUltimoCaractereSeForUmOperador($display.value);
+        inserirCaractereNoDisplay.call(this);
+    }
 
-    botoesCalculadora.forEach(function(item) {
-        item.addEventListener('click', function() {
-            if ($display.value === '0')
-                $display.value = '';
+    function limparDisplayQuandoEstiverZerado() {
+        if ($display.value === '0')
+            $display.value = '';
+    }
 
-            if (/\D/.test(item.innerHTML) && $display.value[$display.value.length - 1] in operadoresCalculadora)
-                $display.value = $display.value.substring(0, $display.value.length - 1);
-
-            $display.value += item.innerHTML;
-        }, false);
-    });
-
-    function limparDisplay() {
+    function zerarDisplay() {
         $display.value = '0';
     }
 
-    function calcular() {
-        var operandos = $display.value.split(/\D+/).map(function(nro) {
-            return +nro;
-        }).filter(function (nro) {
-            return nro > 0;
-        });
-
-        var operadores = $display.value.split(/[\d]/).filter(function(operador) {
-            return operador !== '';
-        });
-
-        var resultado = operandos.reduce(function(anterior, atual, index) {
-            return operadoresCalculadora[operadores[index-1]](anterior, atual);
-        });
-
-        $display.value = resultado;
+    function removerUltimoCaractereSeForUmOperador(str) {
+        return eOUltimoCaractereUmOperador(str) ? str.slice(0, -1) : str;
     }
 
-    $btn_limpar.addEventListener('click', limparDisplay, false);
+    function eOUltimoCaractereUmOperador(str) {
+        return str.split('').pop() in operacoes;
+    }
+
+    function separarOperadoresEOperandos(expressao) {
+        var segmentosExpressao = {};
+        segmentosExpressao.operandos = expressao.split(/\D/).map(Number);
+        segmentosExpressao.operadores = expressao.split(/\d+/).join('').split('');
+        return segmentosExpressao;
+    }
+
+    function calcular() {
+        $display.value = removerUltimoCaractereSeForUmOperador($display.value);
+        var expressao = separarOperadoresEOperandos($display.value);
+        $display.value = expressao.operandos.reduce(function(anterior, atual, index) {
+            return operacoes[expressao.operadores[index - 1]](anterior, atual);
+        });
+    }
+
+    $botoesNumericos.forEach(function(botao) {
+        botao.addEventListener('click', inserirCaractereNoDisplay, false);
+    });
+    $botoesOperacao.forEach(function(botao) {
+        botao.addEventListener('click', inserirOperadorNoDisplay, false);
+    });
+    $btn_limpar.addEventListener('click', zerarDisplay, false);
     $btn_igual.addEventListener('click', calcular, false);
 })(window, document);
