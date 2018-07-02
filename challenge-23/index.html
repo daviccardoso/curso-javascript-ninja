@@ -5,29 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Challenge 23</title>
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+        }
+
+        .container {
+            width: 180px;
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-family: Arial, Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            border-radius: 4px;
+        }
+
+        .display {
+            padding-left: 2px;
+        }
+
+        button {
+            width: 55px;
+            height: 25px;
+            margin-top: 5px;
+            color: #fff;
+            font-weight: bold;
+            border: 0;
+            border-radius: 4px;
+        }
+
+        button[data-js='btn-numericos'] {
+            background-color: #66a6b6;
+        }
+
+        button[data-js='btn-numericos']:hover {
+            background-color: #84cadb;
+        }
+
+        .botoes-operadores button {
+            background-color: #576c79;
+        }
+
+        .botoes-operadores button:hover {
+            background-color: #7f99aa;
+        }
+    </style>
 </head>
 
 <body>
-    <input type="text" data-js="display" value="0" readonly>
-    <div class="botoes-numericos">
-        <button data-js="btn-numericos" value="7">7</button>
-        <button data-js="btn-numericos" value="8">8</button>
-        <button data-js="btn-numericos" value="9">9</button>
-        <button data-js="btn-numericos" value="4">4</button>
-        <button data-js="btn-numericos" value="5">5</button>
-        <button data-js="btn-numericos" value="6">6</button>
-        <button data-js="btn-numericos" value="1">1</button>
-        <button data-js="btn-numericos" value="2">2</button>
-        <button data-js="btn-numericos" value="3">3</button>
-        <button data-js="btn-numericos" value="0">0</button>
-    </div>
-    <div class="botoes-operadores">
-        <button data-js="btn-operacao" value="+">+</button>
-        <button data-js="btn-operacao" value="-">-</button>
-        <button data-js="btn-operacao" value="x">x</button>
-        <button data-js="btn-operacao" value="&divide;">&divide;</button>
-        <button data-js="btn-igual" value="=">=</button>
-        <button data-js="btn-limpar" value="ce">CE</button>
+    <div class="container">
+        <input type="text" class="display" data-js="display" value="0" readonly>
+        <div class="botoes-numericos">
+            <button data-js="btn-numericos" value="7">7</button>
+            <button data-js="btn-numericos" value="8">8</button>
+            <button data-js="btn-numericos" value="9">9</button>
+            <button data-js="btn-numericos" value="4">4</button>
+            <button data-js="btn-numericos" value="5">5</button>
+            <button data-js="btn-numericos" value="6">6</button>
+            <button data-js="btn-numericos" value="1">1</button>
+            <button data-js="btn-numericos" value="2">2</button>
+            <button data-js="btn-numericos" value="3">3</button>
+            <button data-js="btn-numericos" value="0">0</button>
+        </div>
+        <div class="botoes-operadores">
+            <button data-js="btn-operacao" value="+">+</button>
+            <button data-js="btn-operacao" value="-">-</button>
+            <button data-js="btn-operacao" value="x">x</button>
+            <button data-js="btn-operacao" value="&divide;">&divide;</button>
+            <button data-js="btn-igual" value="=">=</button>
+            <button data-js="btn-limpar" value="ce">CE</button>
+        </div>
     </div>
     <script src="challenge-23.js"></script>
 </body>
