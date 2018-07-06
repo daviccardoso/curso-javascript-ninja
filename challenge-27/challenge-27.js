@@ -1,4 +1,4 @@
-(function() {
+(function(window, document) {
     'use strict';
     /*
     Aproveitando a lib DOM que fizemos na semana anterior, crie agora para ela
@@ -42,32 +42,32 @@
         return this.element;
     };
 
-    DOM.prototype.forEach = function forEach(callback) {
-        Array.prototype.forEach.call(this.element, callback);
+    DOM.prototype.forEach = function forEach() {
+        Array.prototype.forEach.apply(this.element, arguments);
     };
 
-    DOM.prototype.map = function map(callback) {
-        Array.prototype.map.call(this.element, callback);
+    DOM.prototype.map = function map() {
+        Array.prototype.map.apply(this.element, arguments);
     };
 
-    DOM.prototype.filter = function filter(callback) {
-        Array.prototype.filter.call(this.element, callback);
+    DOM.prototype.filter = function filter() {
+        Array.prototype.filter.apply(this.element, arguments);
     };
 
-    DOM.prototype.reduce = function reduce(callback) {
-        Array.prototype.reduce.call(this.element, callback);
+    DOM.prototype.reduce = function reduce() {
+        Array.prototype.reduce.apply(this.element, arguments);
     };
 
-    DOM.prototype.reduceRight = function reduceRight(callback) {
-        Array.prototype.reduceRight.call(this.element, callback);
+    DOM.prototype.reduceRight = function reduceRight() {
+        Array.prototype.reduceRight.apply(this.element, arguments);
     };
 
-    DOM.prototype.every = function every(callback) {
-        Array.prototype.every.call(this.element, callback);
+    DOM.prototype.every = function every() {
+        Array.prototype.every.apply(this.element, arguments);
     };
     
-    DOM.prototype.some = function some(callback) {
-        Array.prototype.some.call(this.element, callback);
+    DOM.prototype.some = function some() {
+        Array.prototype.some.apply(this.element, arguments);
     };
 
     DOM.isArray = function isArray(arr) {
@@ -100,4 +100,4 @@
     };
 
     var $a = new DOM('[data-js="link"]');
-})();
+})(window, document);
