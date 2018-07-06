@@ -24,7 +24,6 @@
   
   function DOM(element) {
     this.element = document.querySelectorAll(element);
-
   }
   
   DOM.prototype.on = function on(event, callback) {
