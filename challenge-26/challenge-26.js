@@ -25,31 +25,32 @@
   function DOM(element) {
     this.element = document.querySelectorAll(element);
 
-    this.on = function on(event, func) {
-      Array.prototype.forEach.call(this.element, function() {
-        addEventListener(event, func);
-      });
-    };
-
-    this.off = function off(event, func) {
-      Array.prototype.forEach.call(this.element, function() {
-        removeEventListener(event, func);
-      });
-    };
-
-    this.get = function get() {
-      return this.element;
-    };
   }
+  
+  DOM.prototype.on = function on(event, callback) {
+    Array.prototype.forEach.call(this.element, function(element) {
+      element.addEventListener(event, callback);
+    });
+  };
 
+  DOM.prototype.off = function off(event, callback) {
+    Array.prototype.forEach.call(this.element, function(element) {
+      element.removeEventListener(event, callback);
+    });
+  };
+
+  DOM.prototype.get = function get() {
+    return this.element;
+  };
+  
   var $a = new DOM('[data-js="link"]');
   
   $a.on('click', clicou);
-  $a.off('click', clicou);
 
   function clicou(e) {
     e.preventDefault();
     console.log('clicou');
+    $a.off('click', clicou);
   }
 
   console.log('Elementos selecionados:', $a.get());
